@@ -15,11 +15,13 @@ let err = '';
 // console.log(`Typeof to ${to} is ${typeof(to)}`);
 
 
-if (typeof(from) !== 'number'){
+
+
+if (isNaN(from)){
     err += `\nError in first number ${from}. Typeof is ${typeof(from)}`;
 }
 
-if (typeof(to) !== 'number'){
+if (isNaN(to)){
     err += `\nError in second number ${to}. Typeof is ${typeof(to)}`;
 }
 
@@ -33,12 +35,12 @@ if (to > 1000000){
 
 
 
-if (err){
+if (err.length > 0){
     console.log(colorer(err));
     // window.stop();
 }
 
-if (!err){
+if (err.length < 1){
     colorer = colors.green;
     console.log(colorer(`\nnumbers are good\n`));
 }
@@ -63,11 +65,12 @@ for (let i = from; i < to; i++) {
     }
 }
 
-
-if(simples.length < 1){
-    colorer = colors.red;
-    console.log(colorer(`No simples between ${from} and ${to}\n`))
-}
-else {
-    console.log(colorer(`Simples between ${from} and ${to} are:\n` + simples + '\n'));
+if(err.length < 1) {
+    if(simples.length < 1){
+        colorer = colors.red;
+        console.log(colorer(`No simples between ${from} and ${to}\n`))
+    }
+    else {
+        console.log(colorer(`Simples between ${from} and ${to} are:\n` + simples + '\n'));
+    }
 }
