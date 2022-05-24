@@ -69,7 +69,8 @@ emitterObject.on('make', Handler.make);
 
 for (let j = 0; j < 3; j++) {
     let timer = setTimeAhead(generateMinsRange(1,5));
-    emitterObject.emit(Handler.make(j, timer))
-    
-    
+    emitterObject.emit(Handler.make(j, timer))    
 }
+
+
+emitterObject.removeAllListeners()
