@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 // запуск – readSearchFile
+// npm install --save inquirer-select-directory
 
 const fs = require('fs');
 const path = require("path");
 const inquirer = require("inquirer");
+inquirer.registerPrompt('directory', require('inquirer-select-directory'));
+
 const currentDirectory = process.cwd();
 const { Transform } = require('stream')
 
@@ -69,11 +72,12 @@ const list = fs.readdirSync(currentDirectory).filter(isFile);
 
 
 inquirer
-.prompt([
+.prompt([   
 {
-    type: 'input',
+    type: 'directory',
     name: 'currentDirectory',
-    message: "Approove folder:",
+    message: "Select folder:",
+    basePath: './',
     default() {
         return currentDirectory;
     }
