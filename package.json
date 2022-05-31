@@ -16,7 +16,11 @@
   "dependencies": {
     "colors": "^1.4.0",
     "inquirer": "^8.2.4",
+
+    "nodemon": "^2.0.16",
+
     "inquirer-select-directory": "^1.2.0",
+
     "yargs": "^17.5.1"
   },
   "repository": {

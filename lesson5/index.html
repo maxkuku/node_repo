@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="charset" content="utf-8"/>
+        <title>File reader</title>
+        <script>
+        </script>
+    </head>
+    <body>
+        <div>
+            <p>Select folder to process</p>
+            <select id="selectFolder">
+                {{folder}}
+            </select>
+            <script>
+                
+                let selectFolder = document.querySelector('#selectFolder');
+                selectFolder.addEventListener('change', () => {
+                    let dest = selectFolder.options[selectFolder.selectedIndex].value;
+                    location.href = `/index.html?currentDirectory=${dest}`;
+                })
+            </script>
+        </div>
+        <div>
+            <br>
+            <label for="search">Search</label>
+            <input type="search" id="search" name="search" placeholder="Type to search in file"/>
+        </div>
+        <div>
+            <p>If search type search and|or select file to parse</p>
+            <ol>
+                {{data}}
+            </ol>
+        </div>
+        <div>
+            <p>Selected file code</p>
+            <code>{{code}}</code>
+        </div>
+    <script>
+        setTimeout(() => {
+            
+            let searchElt = document.querySelector('#search');
+            searchElt.addEventListener('focusout', () => {
+                let searchString = searchElt.value;
+                let links = document.querySelectorAll('.files');
+                links.forEach((elt)=>{
+                    elt.href = elt.href + `&search=${searchString}`
+                })
+            });
+            
+        },0)
+
+    </script>    
+    </body>
+</html>
