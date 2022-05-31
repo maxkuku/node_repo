@@ -1,15 +1,31 @@
 {
-  "name": "my_node",
-  "version": "1.0.0",
-  "description": "lesson1",
-  "main": "index.js",
+  "name": "node_repo",
+  "version": "1.0.1",
+  "description": "lessons from 1 to last for nodejs course gikbrains",
+  "main": "cli.js",
+  "bin": {
+    "readSearchFile": "lesson4/cli.js"
+  },
   "scripts": {
     "dev": "node ./lesson1/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start4": "node ./lesson4/cli.js"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "colors": "^1.4.0"
-  }
+    "colors": "^1.4.0",
+    "inquirer": "^8.2.4",
+    "inquirer-select-directory": "^1.2.0",
+    "yargs": "^17.5.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/maxkuku/node_repo.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/maxkuku/node_repo/issues"
+  },
+  "homepage": "https://github.com/maxkuku/node_repo#readme"
 }
